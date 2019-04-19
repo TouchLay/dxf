@@ -118,7 +118,7 @@ export default (parsed) => {
 
   const texts = []
   mtexts.forEach((mtext, i) => {
-    texts.push(mtextToText([mtext.x, - (mtext.nominalTextHeight || 0) - mtext.y], mtext.string, mtext))
+    texts.push(mtextToText([mtext.x, (mtext.nominalTextHeight || 0) - mtext.y], mtext.string, mtext))
   })
 
   let svgString = '<?xml version="1.0"?>'
