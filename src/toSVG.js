@@ -60,19 +60,8 @@ function mtextToText(point, text, options) {
   // todo
   // Rotate: transform="rotate(${(options.xAxisY === 1) ? 90 : 0}deg)"
   // Vertical Text direction: text-orientation: upright; writing-mode: vertical-rl;
-
-  return `<text 
-    x="${_point[0]}" 
-    y="${_point[1]}" 
-    width="${horizontalWidth}" 
-    height="${verticalHeight}" 
-    text-anchor="${textAnchor}"
-    style="font-size: ${fontSize}px; font-family: ${options.styleName || 'arial'};">
-      ${(_text.length > 1)
-          ? _text.map(t => `<tspan dx="0" dy="1.2em" style="font-size: ${fontSize}px;">${t}</tspan>`).join('') // FIXME needs to move dx back by -x to 0 of obove text element
-          : text
-      }
-    </text>`
+  // FIXME needs to move dx back by -x to 0 of obove text element
+  return `<text x="${_point[0]}" y="${_point[1]}" width="${horizontalWidth}" height="${verticalHeight}" text-anchor="${textAnchor}" style="font-size: ${fontSize}px; font-family: ${options.styleName || 'arial'};">${(_text.length > 1) ? _text.map(t => `<tspan dx="0" dy="1.2em" style="font-size: ${fontSize}px;">${t}</tspan>`).join('') : text}</text>`
 }
 
 /**
